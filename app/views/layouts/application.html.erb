@@ -17,10 +17,10 @@
     <% if @show_sidebar.nil? %>
       <header>
         <%= render "layouts/nav/public" %>
-        <%= yield %>
       </header>
+
+      <%= yield %>
     <% else %>
-    <% if account.signed_in? %>
       <%= render "layouts/nav/dashboard" %>
 
         <div class="container-fluid">
@@ -31,7 +31,6 @@
             </main>
           </div>
         </div>
-    <% end %>
   <% end %>
 
     <%#= render "layouts/footer"%>

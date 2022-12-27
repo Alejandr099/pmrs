@@ -1,31 +1,40 @@
-<p>
-  <strong>Name:</strong>
-  <%= @property.name %>
-</p>
+<%= image_tag @property.photo, class: "property-main-photo",
+              :style => "width: 100%; object-fit: cover; margin-top:-24px; margin-bottom:40px" %>
+<div class="photo-overlay">
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+        <p>
+          <strong>Name:</strong>
+          <%= @property.name %>
+        </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @property.price %>
-</p>
+        <p>
+          <strong>Address:</strong>
+          <%= @property.address %>
+        </p>
 
-<p>
-  <strong>Rooms:</strong>
-  <%= @property.rooms %>
-</p>
+        <p>
+          <strong>Price:</strong>
+          <%= @property.price %>
+        </p>
 
-<p>
-  <strong>Bathrooms:</strong>
-  <%= @property.bathrooms %>
-</p>
+        <p>
+          <strong>Rooms:</strong>
+          <%= @property.rooms %>
+        </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= image_tag(@property.thumbnail) %>
-</p>
+        <p>
+          <strong>Bathrooms:</strong>
+          <%= @property.bathrooms %>
+        </p>
 
-<%= link_to 'Edit Property', edit_property_path(@property), class: "btn btn-success" %>
+    </div>
+    <div class="col-4">
+      <%= render "properties/agent_details" %>
+      Agent info
+    </div>
+  </div>
+</div>
