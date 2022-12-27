@@ -12,14 +12,17 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body id="<%= controller.controller_name %>" class="<%= controller.action_name %>">
-    <% if ["public", "devise", "sessions"].include?(controller.controller_name) %>
+  <body id="<%= controller.controller_name %>" class="<%= controller.action_name %> <%= "show-sidebar" if @show_sidebar.present? %>">
+    <%# if ["public", "devise", "sessions"].include?(controller.controller_name) %>
+    <% if @show_sidebar.nil? %>
       <header>
         <%= render "layouts/nav/public" %>
         <%= yield %>
       </header>
     <% else %>
+    <% if account.signed_in? %>
       <%= render "layouts/nav/dashboard" %>
+
         <div class="container-fluid">
           <div class="row">
             <%= render "layouts/nav/sidebar" %>
@@ -28,6 +31,7 @@
             </main>
           </div>
         </div>
+    <% end %>
   <% end %>
 
     <%#= render "layouts/footer"%>

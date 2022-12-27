@@ -1,0 +1,12 @@
+<% Property.all.each do |property| %>
+  <div class="col-4">
+    <%= link_to( (image_tag property.public_page), property_path(property) ) %>
+    <h4 class="h5 mt-3"><%= property.name %></h4>
+    <p><%= property.address %></p>
+    <div class="amenites">
+      <!--<span><i data-feather="users"></i></span>
+      <span></span>-->
+    </div>
+
+  </div>
+<% end %>
