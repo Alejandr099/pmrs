@@ -1,7 +1,8 @@
-<section class="form-auth text-center">
+<br />
+<section class="form-auth text-center mt-5">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
+    <h1 class="h3 mb-3 mt-6 font-weight-normal">Please Log In</h1>
     <%= f.email_field :email, autofocus: true, class: "form-control", id: "inputEmail", placeholder: "Email address", autocomplete: "email" %>
     <%= f.password_field :password, autocomplete: "current-password", id: "inputPassword", class: "form-control", placeholder: "Password" %>
     <div class="checkbox mb-3">
