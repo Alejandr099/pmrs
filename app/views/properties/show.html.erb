@@ -23,4 +23,9 @@
   <%= @property.bathrooms %>
 </p>
 
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag(@property.thumbnail) %>
+</p>
+
 <%= link_to 'Edit Property', edit_property_path(@property), class: "btn btn-success" %>
