@@ -6,32 +6,55 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-        <p>
-          <strong>Name:</strong>
-          <%= @property.name %>
-        </p>
+      <div class="row">
+        <div class="col-6">
+          <p class="mb-0"><%= @property.address %></p>
+          <p class="h2">Book it!</p>
+        </div>
 
-        <p>
-          <strong>Address:</strong>
-          <%= @property.address %>
-        </p>
+        <div class="col-6">
+          <div class="">
+            <%= @property.rooms %>
+          </div>
+          <div class="">
+            <%= @property.bathrooms %>
+          </div>
+          <div class="">
+            <%= @property.parking_spaces %>
+          </div>
+        </div>
+      </div>
 
-        <p>
-          <strong>Price:</strong>
-          <%= @property.price %>
-        </p>
+      <div class="row">
+        <div class="col">
+            <p>
+              <strong>Name:</strong>
+              <%= @property.name %>
+            </p>
 
-        <p>
-          <strong>Rooms:</strong>
-          <%= @property.rooms %>
-        </p>
+            <p>
+              <strong>Address:</strong>
+              <%= @property.address %>
+            </p>
 
-        <p>
-          <strong>Bathrooms:</strong>
-          <%= @property.bathrooms %>
-        </p>
+            <p>
+              <strong>Price:</strong>
+              <%= @property.price %>
+            </p>
 
+            <p>
+              <strong>Rooms:</strong>
+              <%= @property.rooms %>
+            </p>
+
+            <p>
+              <strong>Bathrooms:</strong>
+              <%= @property.bathrooms %>
+            </p>
+        </div>
+      </div>
     </div>
+
     <div class="col-4">
       <%= render "properties/agent_details" %>
       Agent info
