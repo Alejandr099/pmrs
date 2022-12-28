@@ -32,15 +32,16 @@
 
       <div class="row border-top border-bottom mt-5 mb-5 pt-4 pb-4">
         <div class="col-6">
-           Payment per night: <%= number_to_currency((@property.price / 100)) %>
+          <strong class="text-success">Estimated payment per night: <%= number_to_currency((@property.price / 100)) %></strong>
         </div>
         <div class="col-6">
+          <strong class="text-success">Can I affordrent this property?</strong>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-        <p class="h2">Property Description</p>
+            <p class="h3">Property Description</p>
             <p>
               <strong>Name:</strong>
               <%= @property.name %>
