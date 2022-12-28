@@ -9,24 +9,38 @@
       <div class="row">
         <div class="col-6">
           <p class="mb-0"><%= @property.address %></p>
-          <p class="h2">Book it!</p>
+          <p class="h2"><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Book & Rent it!" %></p>
         </div>
 
+        <div class="col-6 text-center">
+          <div class="row mr-3 bg-light p-3">
+            <div class="col-4">
+              <p class="m-0"><strong>Rooms</strong></p>
+              <span class="lead"><%= @property.rooms %></span>
+            </div>
+            <div class="col-4">
+              <p class="m-0"><strong>Bathrooms</strong></p>
+              <span class="lead"><%= @property.bathrooms %></span>
+            </div>
+            <div class="col-4">
+              <p class="m-0"><strong>Parking</strong></p>
+              <span class="lead"><%= @property.parking_spaces %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row border-top border-bottom mt-5 mb-5 pt-4 pb-4">
         <div class="col-6">
-          <div class="">
-            <%= @property.rooms %>
-          </div>
-          <div class="">
-            <%= @property.bathrooms %>
-          </div>
-          <div class="">
-            <%= @property.parking_spaces %>
-          </div>
+           Payment per night: <%= number_to_currency((@property.price / 100)) %>
+        </div>
+        <div class="col-6">
         </div>
       </div>
 
       <div class="row">
         <div class="col">
+        <p class="h2">Property Description</p>
             <p>
               <strong>Name:</strong>
               <%= @property.name %>
