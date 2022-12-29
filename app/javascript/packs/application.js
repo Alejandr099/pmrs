@@ -12,4 +12,5 @@ global.$ = global.jQuery = jQuery
 window.$ = window.jQuery = jQuery
 
 require("bootstrap")
+require("@fortawesome/fontawesome-free")
 require("./includes/properties");

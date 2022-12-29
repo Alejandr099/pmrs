@@ -17,10 +17,16 @@ gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Upload and manage images
 gem 'activestorage'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
+# Download custom icons for Rails
+gem "font-awesome-sass", "~> 6.2.1"
+
+# Manage users
 gem "devise"
 
 # Reduces boot times through caching; required in config/boot.rb

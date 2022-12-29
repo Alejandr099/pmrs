@@ -77,6 +77,8 @@ GEM
       warden (~> 1.2.3)
     erubi (1.12.0)
     ffi (1.15.5)
+    font-awesome-sass (6.2.1)
+      sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -177,9 +179,6 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
-    simple_form (5.1.0)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
     spring (3.1.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
@@ -222,6 +221,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   devise
+  font-awesome-sass (~> 6.2.1)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
@@ -230,7 +230,6 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6, >= 6.1.6.1)
   sass-rails (>= 6)
-  simple_form
   spring
   sqlite3 (~> 1.4)
   tzinfo-data
