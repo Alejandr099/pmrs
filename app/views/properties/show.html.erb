@@ -5,15 +5,15 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-md-8">
       <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6">
           <p class="mb-0"><%= @property.address %></p>
           <p class="h2"><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Book & Rent it!" %></p>
         </div>
 
-        <div class="col-6 text-center">
-          <div class="row mr-3 bg-light p-3">
+        <div class="col-lg-6 text-center">
+          <div class="row mr-lg-3 mt-sm-3 bg-light p-3">
             <div class="col-4">
               <p class="m-0"><strong>Rooms</strong></p>
               <span class="lead"><%= @property.rooms %></span>
@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-md-4">
       <%= render "properties/agent_details" %>
     </div>
   </div>

@@ -3,8 +3,8 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <h1 class="h3 mb-3 mt-6 font-weight-normal">Please Log In</h1>
-    <%= f.email_field :email, autofocus: true, class: "form-control", id: "inputEmail", placeholder: "Email address", autocomplete: "email" %>
-    <%= f.password_field :password, autocomplete: "current-password", id: "inputPassword", class: "form-control", placeholder: "Password" %>
+    <%= f.email_field :email, autofocus: true, class: "form-control mb-2 rounded", id: "inputEmail", placeholder: "Email address", autocomplete: "email" %>
+    <%= f.password_field :password, autocomplete: "current-password", id: "inputPassword", class: "form-control rounded", placeholder: "Password" %>
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
