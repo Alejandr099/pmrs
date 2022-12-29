@@ -1,0 +1,30 @@
+<% properties.each do |property| %>
+
+  <div class="col-md-4">
+    <div class="property border m-4" >
+
+      <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
+
+      <div class="property-summary m-4">
+        <h3 class="h5"><%= link_to property.name, property_path(property), style:"text-decoration:none; color:black;" %></h3>
+
+        <span class="mr-2">
+            <%= property.rooms %>
+          <i class="fa-solid fa-bed" style="margin-left: 4px; margin-right: 6px"></i>
+          </span>
+        <span class="mr-2">
+            <%= property.bathrooms %>
+          <i class="fa-solid fa-bath" style="margin-left: 4px; margin-right: 6px"></i>
+          </span>
+        <span class="mr-2">
+            <%= property.parking_spaces %>
+          <i class="fa-solid fa-car" style="margin-left: 4px; margin-right: 6px"></i>
+          </span>
+
+        <p class="mt-2"><%= property.address %></p>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
