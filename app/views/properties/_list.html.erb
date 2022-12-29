@@ -1,6 +1,8 @@
+<h1 class="h3">Other properties by this agent</h1>
 <% properties.each do |property| %>
 
   <div class="col-md-4">
+
     <div class="property border m-4" >
 
       <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
