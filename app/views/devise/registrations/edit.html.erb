@@ -4,11 +4,6 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="input-group">
-    <%= image_tag(@account.avatar_thumbnail) if current_account.avatar.attached? %><br />
-    <%= f.file_field :avatar, class: "form-control" %>
-  </div>
-
-  <div class="input-group">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, class: "form-control" %>
   </div>
@@ -16,6 +11,11 @@
   <div class="input-group">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+
+  <div class="input-group">
+    <%= f.label :company %><br />
+    <%= f.text_field :company, class: "form-control" %>
   </div>
 
   <div class="input-group">
@@ -47,7 +47,13 @@
   </div>
 
   <div class="input-group">
-    <%= f.submit "Update" %>
+    <%= f.label :avatar %>
+    <%= image_tag(@account.avatar_thumbnail, style: "border-radius:50px;") if current_account.avatar.attached? %><br />
+    <%= f.file_field :avatar, class: "form-control" %>
+  </div>
+
+  <div class="input-group">
+    <%= f.submit "Update", class: "btn btn-success" %>
   </div>
 <% end %>
 
