@@ -1,16 +1,19 @@
 <% Property.all.each do |property| %>
   <div class="col-md-4">
-    <div class="property border m-4" style="width:302px; max-width: 302px;">
-      <%= link_to( (image_tag property.public_page), property_path(property) ) %>
-
-      <div class="property-summary pt-3">
-        <h4 class="h5"><%= link_to property.name, property_path(property) %></h4>
-        <span class="mr-2"><i class="fa-solid fa-bed"></i> <%= property.rooms %></span>
-        <span class="mr-2"><i class="fa-solid fa-bath"></i> <%= property.bathrooms %></span>
-        <span class="mr-2"><i class="fa-solid fa-car"></i> <%= property.parking_spaces %></span>
-        <p class="mt-2"><%= property.address %></p>
-      </div>
+    <div class="property border m-4" >
+      <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
+        <div class="property-summary m-4">
+          <h4 class="h5"><%= link_to property.name, property_path(property), style:"text-decoration:none; color:black;" %></h4>
+          <span class="mr-2"><i class="fa-solid fa-bed"></i> <%= property.rooms %></span>
+          <span class="mr-2"><i class="fa-solid fa-bath"></i> <%= property.bathrooms %></span>
+          <span class="mr-2"><i class="fa-solid fa-car"></i> <%= property.parking_spaces %></span>
+          <p class="mt-2"><%= property.address %></p>
+        </div>
     </div>
   </div>
 
 <% end %>
+
+<!-- style="width:350px; max-width: 350px;"
+class: "d-block mx-auto mt-2 w-auto",
+-->
