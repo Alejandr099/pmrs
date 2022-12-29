@@ -6,7 +6,7 @@ class Property < ActiveRecord::Base #< ApplicationRecord
   scope :latest, -> { order created_at:  :desc}
 
   def public_page
-    self.photo.variant(resize: '300x200!').processed
+      self.photo.variant(resize: '300x200!').processed
   end
 
   def banner

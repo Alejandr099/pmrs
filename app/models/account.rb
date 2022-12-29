@@ -8,6 +8,8 @@ class Account < ApplicationRecord
   has_many :properties
   has_one_attached :avatar
 
+
+
   def avatar_thumbnail
     if avatar.attached?
       self.avatar.variant(resize: "100x100!").processed
