@@ -4,6 +4,11 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="input-group">
+    <%= image_tag(@account.avatar_thumbnail) if current_account.avatar.attached? %><br />
+    <%= f.file_field :avatar, class: "form-control" %>
+  </div>
+
+  <div class="input-group">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, class: "form-control" %>
   </div>
