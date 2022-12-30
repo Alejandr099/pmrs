@@ -7,30 +7,31 @@
   <div class="row">
     <div class="col-md-8">
       <div class="row">
-        <div class="col-lg-6">
-          <p class="mb-0"><%= @property.address %></p>
+        <div class="col-lg-5">
+          <p class="h4 mb-0"><%= @property.for_sale? ? "For Sale" : "For Rent" %></p>
+          <p class="mb-2"><%= @property.address %></p>
           <p class="h2">
             <% if @property.for_sale? %>
-              <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale!" %>
+              <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Offers Accepted!" %>
             <% else %>
-              <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Rent!" %> / week
+              <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Open for enquires!" %> / week
           <% end %>
           </p>
         </div>
 
-        <div class="col-lg-6 text-center">
-          <div class="row mr-lg-3 mt-sm-3 bg-light p-3">
+        <div class="col-lg-7 text-center">
+          <div class="row mt-sm-3 bg-light p-3">
             <div class="col-4">
-              <p class="m-0"><strong>Rooms</strong></p>
-              <span class="lead"><%= @property.rooms %></span>
+              <i class="fa-solid fa-bed text-muted m-0"></i><br />
+              <small><%= @property.rooms %> Rooms</small>
             </div>
             <div class="col-4">
-              <p class="m-0"><strong>Bathrooms</strong></p>
-              <span class="lead"><%= @property.bathrooms %></span>
+              <i class="fa-solid fa-bath text-muted"></i><br />
+              <small><%= @property.bathrooms %> Bathrooms</small>
             </div>
             <div class="col-4">
-              <p class="m-0"><strong>Parking</strong></p>
-              <span class="lead"><%= @property.parking_spaces %></span>
+              <i class="fa-solid fa-car text-muted "></i><br />
+              <small><%= @property.parking_spaces %> Parking</small>
             </div>
           </div>
         </div>
@@ -41,6 +42,13 @@
           <% if @property.for_sale? %>
           <strong><%= link_to "Estimated payment per Week:
 #{number_to_currency((@property.price - (@property.price * 0.1)) / 360, precision: 0) }", "#", class: "text-success", style: "text-decoration: none;" %></strong>
+            <% else %>
+          <strong>
+            Available from <%= @property.available_date.strftime("%a") %>,
+            <%= @property.available_date.day.ordinalize %>
+            <%= @property.available_date.strftime("%b") %>
+            <%= @property.available_date.strftime("%Y") %>
+          </strong>
             <% end %>
         </div>
         <div class="col-6 text-right m-lg-0">
