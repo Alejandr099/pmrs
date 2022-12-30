@@ -10,8 +10,14 @@ $(function() {
             $(this).text("Show more");
         }
     });
-// Message popup script
 
+    $('#send-message-to-agent').on("click", function () {
+        $.ajax({
+            url: ""
+        })
+    });
+
+        // Message popup script
     $('#contact-modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var modal = $(this);

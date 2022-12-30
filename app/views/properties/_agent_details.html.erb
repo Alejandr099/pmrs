@@ -1,9 +1,15 @@
-<div class="text-center border p-3 pb-3 ml-lg-4">
+<div class="text-center border pt-4 pb-4 ml-lg-4">
   <%= profile_avatar @agent %>
   <h3 class="h4 m-0"><%= @agent.full_name %></h3>
   <p><%= @agent.company %></p>
 
-  <!--<button class="btn btn-info text-uppercase">Call</button>-->
-  <%= link_to "Profile", profile_path(@agent.id), class: "btn btn-secondary text-uppercase" %>
-  <button class="btn btn-success text-uppercase" data-toggle="modal" data-target="#contact-modal">Email</button>
+  <div class="row mx-4">
+    <div class="col-md-6 p-1">
+      <%= link_to "Profile", profile_path(@agent.id), class: "btn btn-block btn-secondary text-uppercase w-100" %>
+    </div>
+
+    <div class="col-md-6 p-1">
+      <button class="btn btn-block btn-success text-uppercase w-100" data-toggle="modal" data-target="#contact-modal">Email</button>
+    </div>
+  </div>
 </div>

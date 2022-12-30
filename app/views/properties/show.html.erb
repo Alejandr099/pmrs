@@ -67,7 +67,9 @@
 
           <button class="btn btn-outline-info mt-3" id="toggleDetails">Show more</button>
 
-          <p class="mt-5">* This payment can be expand to week, month, year.</p>
+          <% if @property.for_sale %>
+            <p class="mt-5">* This payment can be expand to week, month, year.</p>
+          <% end %>
         </div>
       </div>
     </div>
