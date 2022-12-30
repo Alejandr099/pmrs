@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_29_135641) do
+ActiveRecord::Schema.define(version: 2022_12_30_122201) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_12_29_135641) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "parking_spaces", default: 0
     t.text "details"
+    t.boolean "for_sale", default: true
     t.index ["account_id"], name: "index_properties_on_account_id"
   end
 

@@ -9,7 +9,13 @@
       <div class="row">
         <div class="col-lg-6">
           <p class="mb-0"><%= @property.address %></p>
-          <p class="h2"><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Book & Rent it!" %></p>
+          <p class="h2">
+            <% if @property.for_sale? %>
+              <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale!" %>
+            <% else %>
+              <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Rent!" %> / week
+          <% end %>
+          </p>
         </div>
 
         <div class="col-lg-6 text-center">
@@ -32,7 +38,10 @@
 
       <div class="row border-top border-bottom mt-5 mb-5 pt-4 pb-4">
         <div class="col-6">
-          <strong><%= link_to "Estimated payment per night: #{number_to_currency((@property.price / 100), precision: 0) }", "#", class: "text-success", style: "text-decoration: none;" %></strong>
+          <% if @property.for_sale? %>
+          <strong><%= link_to "Estimated payment per Week:
+#{number_to_currency((@property.price - (@property.price * 0.1)) / 360, precision: 0) }", "#", class: "text-success", style: "text-decoration: none;" %></strong>
+            <% end %>
         </div>
         <div class="col-6 text-right m-lg-0">
           <strong><%= link_to "Can I affordrent this property?", "#", class: "text-success", style: "text-decoration: none; text-aligh:right;"  %></strong>
@@ -69,3 +78,11 @@
     </div>
   </div>
 </section>
+
+<!--
+"Estimated payment per:
+              / Month: #{number_to_currency((@property.price / 200), precision: 0)}
+              / Week: #{number_to_currency((@property.price / 1000), precision: 0) }
+              / Day: #{number_to_currency((@property.price / 10000), precision: 0) }"
+
+-->

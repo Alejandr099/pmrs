@@ -1,34 +1,39 @@
 <%= form_with(model: property) do |form| %>
   <%= render "layouts/validation", item: @property %>
 
-  <div class="form-group">
+  <div class="form-group pt-1">
     <%= form.label :name %>
     <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group pt-1">
     <%= form.label :address %>
     <%= form.text_field :address, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :price %>
+  <div class="form-group pt-1">
+    <%= form.label :price, "Total Price (for sale) / Weekly Price (for rent)" %>
     <%= form.number_field :price, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group pt-1">
     <%= form.label :rooms %>
     <%= form.number_field :rooms, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group pt-1">
     <%= form.label :bathrooms %>
     <%= form.number_field :bathrooms, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group pt-1">
     <%= form.label :parking_spaces %>
     <%= form.number_field :parking_spaces, class: "form-control" %>
+  </div>
+
+  <div class="form-group mt-3 mb-3">
+    <%= form.label :for_sale %>
+    <%= form.select :for_sale, options_for_select({ "Yes" => true, "No" => false }, @property.for_sale), class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -36,12 +41,12 @@
     <%= form.text_area :details, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group pt-1">
     <%= form.label :photo %>
     <%= form.file_field :photo, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group pt-1 pb-3">
     <%= form.submit "Save Property", class: "btn btn-success mt-3" %>
   </div>
 <% end %>
