@@ -13,5 +13,4 @@ class DashboardController < ApplicationController
   def set_sidebar
     @show_sidebar = true
   end
-
 end
