@@ -64,6 +64,7 @@ class PropertiesController < ApplicationController
 
   def email_agent
     # trigger email send
+    agent_id = params[:agent_id]
     first_name = params[:first_name]
     last_name = params[:last_name]
     email = params[:email]
@@ -75,7 +76,7 @@ class PropertiesController < ApplicationController
     #logger.debug "Email: #{email}"
     #logger.debug "Message: #{message}"
 
-    ContactMailer.email_agent( agent_id, first_name, last_name, email, message )
+    ContactMailer.email_agent( agent_id, first_name, last_name, email, message ).deliver_now
 
     # response to script
     respond_to do |format|

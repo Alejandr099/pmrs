@@ -31,7 +31,9 @@ $(function() {
                 message: message
             },
             success: function(data) {
-                console.log(data);
+                $('#contact-modal form').remove();
+                $('#send-message-to-agent').remove();
+                $('#contact-modal .modal-body').html("<p>Your message has been sent successfully!</p>");
             }
         });
     });
