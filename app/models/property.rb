@@ -5,6 +5,11 @@ class Property < ActiveRecord::Base #< ApplicationRecord
 
   scope :latest, -> { order created_at:  :desc}
 
+  scope :sold, -> { where status: "sold" }
+  scope :for_sale, -> { order created_at:  :desc}
+  scope :leased, -> { order created_at:  :desc}
+  scope :for_rent, -> { order created_at:  :desc}
+
   def public_page
       self.photo.variant(resize: '350x250').processed
   end
