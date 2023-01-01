@@ -75,7 +75,7 @@
     </div>
 
     <div class="col-md-4 text-center">
-      <%= render "properties/agent_details", agent: @account %>
+      <%= render "properties/agent_details", agent: @agent %>
 
       <iframe class="ml-lg-4 mt-3" width="100%" height="240" style="border:0"
               src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBwOWZ_C1sw6lYJhxYk_LJJCI2uM9GW8IA&q=<%= @property.address %>" allowfullscreen></iframe>
@@ -92,12 +92,4 @@
   </div>
 </section>
 
-<%= render "properties/send_email_modal" %>
-
-<!--
-"Estimated payment per:
-              / Month: #{number_to_currency((@property.price / 200), precision: 0)}
-              / Week: #{number_to_currency((@property.price / 1000), precision: 0) }
-              / Day: #{number_to_currency((@property.price / 10000), precision: 0) }"
-
--->
+<%= render "properties/send_email_modal", agent: @agent %>

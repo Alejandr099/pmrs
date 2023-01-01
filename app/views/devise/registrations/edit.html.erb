@@ -19,6 +19,11 @@
   </div>
 
   <div class="input-group">
+    <%= f.label :details %><br />
+    <%= f.text_area :details, class: "form-control" %>
+  </div>
+
+  <div class="input-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>

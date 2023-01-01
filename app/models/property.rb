@@ -4,7 +4,6 @@ class Property < ActiveRecord::Base #< ApplicationRecord
   belongs_to :account
 
   scope :latest, -> { order created_at:  :desc}
-
   scope :sold, -> { where status: "sold" }
   scope :for_sale, -> { order created_at:  :desc}
   scope :leased, -> { order created_at:  :desc}
