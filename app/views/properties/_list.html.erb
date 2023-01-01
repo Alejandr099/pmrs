@@ -3,9 +3,9 @@
 
   <div class="col-md-4">
 
-    <div class="property border m-4" >
+    <div class="property border m-4" style="width: 320px; height:380px;">
 
-      <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
+      <%= link_to( (image_tag property.latest_prop_photo, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
 
       <div class="property-summary m-4">
         <h3 class="h5"><%= link_to property.name, property_path(property), style:"text-decoration:none; color:black;" %></h3>

@@ -10,7 +10,11 @@ class Property < ActiveRecord::Base #< ApplicationRecord
   scope :for_rent, -> { order created_at:  :desc}
 
   def public_page
-      self.photo.variant(resize: '350x250').processed
+    self.photo.variant(resize: '350x250').processed
+  end
+
+  def latest_prop_photo
+    self.photo.variant(resize: '300x200').processed
   end
 
   def banner
