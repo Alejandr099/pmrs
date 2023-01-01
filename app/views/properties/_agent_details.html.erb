@@ -4,11 +4,7 @@
   <p><%= agent.company %></p>
 
   <div class="row mx-4">
-    <div class="col-md-6 p-1">
-      <%= link_to "Profile", profile_path(agent.id), class: "btn btn-block btn-secondary text-uppercase w-100" %>
-    </div>
-
-    <div class="col-md-6 p-1">
+    <div class="col-md-12 p-1">
       <button class="btn btn-block btn-success text-uppercase w-100" data-toggle="modal" data-target="#contact-modal">Email</button>
     </div>
   </div>

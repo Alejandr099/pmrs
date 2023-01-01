@@ -34,16 +34,9 @@
         </div>
       </div>
 
-      <div class="row border-top border-bottom mt-5 mb-5 pt-4 pb-4">
-        <div class="col-6">
-          Properties
-        </div>
-        <div class="col-6 text-right m-lg-0">
-          <strong><%= link_to "Can I affordrent this property?", "#", class: "text-success", style: "text-decoration: none; text-aligh:right;"  %></strong>
-        </div>
-      </div>
 
-      <div class="row">
+
+      <div class="row border-top mt-5 pt-4 ">
         <div class="col">
           <p class="h5">Property Description</p>
 
@@ -66,6 +59,9 @@
 <section class="mt-5 mb-5">
   <div class="container">
     <div class="row">
+      <div class="col-12">
+        <p class="h3 mb-3">Current listing by this agent</p>
+      </div>
       <%= render "properties/list", properties: @agent_properties %>
     </div>
   </div>
