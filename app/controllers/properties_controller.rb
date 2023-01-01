@@ -62,6 +62,8 @@ class PropertiesController < ApplicationController
     end
   end
 
+
+
   def email_agent
     # trigger email send
     agent_id = params[:agent_id]
