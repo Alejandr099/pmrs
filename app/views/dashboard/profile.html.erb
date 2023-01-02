@@ -1,7 +1,10 @@
-<%# if @account %>
-  <%= image_tag @properties.last, class: "property-main-photo",
+<% if @account.cover_image.present? %>
+  <%= image_tag @account.cover_image, class: "property-main-photo",
               style:"width: 100%; object-fit: cover; margin-top:-24px; margin-bottom:40px" %>
-<%# end %>
+<% else %>
+  <%= image_tag "/assets/placeholder.png", class: "property-main-photo",
+                style:"width: 100%; object-fit: cover; margin-top:-24px; margin-bottom:20px" %>
+<% end %>
 <div class="photo-overlay">
 </div>
 

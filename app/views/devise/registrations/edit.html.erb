@@ -57,6 +57,12 @@
     <%= f.file_field :avatar, class: "form-control" %>
   </div>
 
+  <div class="form-group pt-1 mt-2">
+    <%= f.label :cover_image %>:<br />
+    <%= image_tag :cover_image if current_account.cover_image.attached? %><br />
+    <%= f.file_field :cover_image, class: "form-control" %>
+  </div>
+
   <div class="form-group pt-1 mt-3 mb-3">
     <%= f.submit "Update Account", class: "btn btn-success" %>
     <%= link_to "Back", :back, class:"btn btn-primary ml-2" %>

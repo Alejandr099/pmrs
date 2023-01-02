@@ -1,5 +1,10 @@
-<%= image_tag @property.photo, class: "property-main-photo",
+<% if @property.photo.present? %>
+  <%= image_tag @property.photo, class: "property-main-photo",
               :style => "width: 100%; object-fit: cover; margin-top:-24px; margin-bottom:40px" %>
+<% else %>
+  <%= image_tag "/assets/placeholder_villa.png", class: "property-main-photo",
+                :style => "width: 100%; object-fit: cover; margin-top:-24px; margin-bottom:40px" %>
+<% end %>
 <div class="photo-overlay">
 </div>
 

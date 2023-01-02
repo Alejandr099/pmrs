@@ -10,7 +10,11 @@ class Property < ActiveRecord::Base #< ApplicationRecord
   scope :for_rent, -> { order created_at:  :desc}
 
   def public_page
-    self.photo.variant(resize: '350x250').processed
+    if self.photo.present?
+      self.photo.variant(resize: '350x250').processed
+    else
+      self.photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'placeholder_villa.png')), filename: 'placeholder_villa.png')
+    end
   end
 
   def latest_prop_photo

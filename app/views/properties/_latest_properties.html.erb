@@ -3,7 +3,11 @@
   <div class="col-md-4">
     <div class="property border m-4" style="width: 380px; height:420px;">
 
-      <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
+      <% if property.public_page.present? %>
+        <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
+      <% else %>
+        <%= link_to( (image_tag "/assets/placeholder_villa.png", class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
+      <% end %>
 
       <div class="property-summary m-4">
           <h3 class="h5"><%= link_to property.name, property_path(property), style:"text-decoration:none; color:black;" %></h3>
