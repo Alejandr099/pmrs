@@ -106,6 +106,7 @@ class PropertiesController < ApplicationController
                                        :bathrooms,
                                        :parking_spaces,
                                        :for_sale,
+                                       :status,
                                        :available_date,
                                        :details,
                                        :photo)

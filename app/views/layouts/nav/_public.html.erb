@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark pt-3 pb-3 px-3">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container">
   <a class="navbar-brand" href="<%= account_signed_in? ? dashboard_path : root_path %>">Property Mgmt. System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,38 +15,22 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Latest</a>
+        <a class="nav-link" href="#">Booking</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">News</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Advertising</a>
-      </li>
-      <% if account_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_account_session_path, method: :delete, class: "nav-link" %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Log In", new_account_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-            <%= link_to "Sign Up", new_account_registration_path, class: "nav-link" %>
-        </li>
-      <% end %>
     </ul>
-    <form class="form-inline navbar-collapse">
+
+    <% if account_signed_in? %>
+        <%= link_to "Log out", destroy_account_session_path, method: :delete, class: "btn btn-success float-sm-right" %>
+    <% else %>
+        <%= link_to "Log In", new_account_session_path, class: "btn btn-secondary mr-2 float-sm-right" %>
+        <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-success ms-2 float-sm-right" %>
+    <% end %>
+<!--
+    <form class="form-inline my-2 my-lg-0 d-flex align-items-center flex-nowrap">
       <input class="form-control me-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    -->
+  </div>
   </div>
 </nav>

@@ -9,3 +9,16 @@
 body {
   padding-top: 80px;
 }
+
+.jumbotron {
+  -webkit-text-stroke: 1px #6e6c6c;
+  text-shadow: 1px 1px 2px #c0fff0;
+  font-family: "PT Sans";
+  height:280px;
+  color: #d5d5d5;
+  margin-top: -25px;
+  background-image: url("main-bg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

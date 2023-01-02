@@ -1,23 +1,23 @@
-<section class="form-auth text-center">
+<section class="form-auth text-center mt-1">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <h1 class="h3 mb-3 font-weight-normal">Please Sign Up</h1>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="form-control">
-      <% if @account.avatar.attached? %>
-        <%= image_tag(@account.avatar) %>
-      <% else %>
-        <%= image_tag("/default-profile.jpg") %>
-      <% end %>
-    </div>
-    <%= f.file_field :avatar, autofocus: true, class: "form-control", placeholder: "Avatar" %>
     <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name" %>
     <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
     <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email" %>
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password confirmation" %>
+    <div class="form-control">
+      <% if @account.avatar.attached? %>
+        <%= image_tag(@account.avatar, alt: "Avatar")  %>
+      <% else %>
+        <%= image_tag("/assets/images/default-profile.jpg", alt: " Profile Avatar") %>
+      <% end %>
+    </div>
+    <%= f.file_field :avatar, autofocus: true, class: "form-control", placeholder: "Avatar" %>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign Up</button>
   <% end %>
 
   <%= render "devise/shared/links" %>

@@ -1,16 +1,17 @@
 <main role="main">
-
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
+  <div class="jumbotron pt-5 pb-5">
     <div class="container">
-      <h1 class="display-3">Search for your new home today...</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+      <h1 class="mt-5 ms-3 text-center">Find dream place for yourself...</h1>
     </div>
   </div>
 
   <section id="latest-properties" class="mb-5">
     <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3 class="mb-2 mt-5 mx-4">Latest Properties</h3>
+        </div>
+      </div>
       <div class="row">
         <%= render "properties/latest_properties", properties: @properties %>
       </div>
