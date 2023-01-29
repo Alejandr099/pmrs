@@ -3,6 +3,7 @@ class Property < ActiveRecord::Base #< ApplicationRecord
   has_one_attached :photo
   belongs_to :account
 
+
   scope :latest, -> { order created_at:  :desc}
   scope :sold, -> { where status: "sold" }
   scope :for_sale, -> { order created_at:  :desc}

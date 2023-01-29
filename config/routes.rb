@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :accounts
   resources :properties
+  resources :reservations
 
   # admin routes
   get "/accounts" => 'admin#accounts', as: :accounts
