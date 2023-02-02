@@ -6,8 +6,8 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @property = Property.find(params[:id])
-    @reservation = @property.reservations.new
+    @property = Property.all
+    @reservation = Reservation.new
   end
 
   def create
