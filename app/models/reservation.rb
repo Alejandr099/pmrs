@@ -12,7 +12,7 @@ class Reservation < ApplicationRecord
     end
 
     if (start_date && end_date) &&
-        (property.reservations.where(start_date: start_date..end_date).or
+        (property.reservations.where(start_date: start_date..end_date).on
         (property.reservations.where(end_date: start_date..end_date)).exists?)
 
       errors.add(:start_date, "This property is not available for the selected dates")

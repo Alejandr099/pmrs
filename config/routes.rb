@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
+  get 'reservations/show'
+  get 'reservations/new'
   devise_for :accounts
   resources :properties
   resources :reservations
+  #resources :properties, only: [:index, :show] do
+  #  resources :reservations, only: [:new, :create]
+  #end
 
   # admin routes
   get "/accounts" => 'admin#accounts', as: :accounts
