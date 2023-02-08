@@ -1,29 +1,40 @@
 class ReservationsController < ApplicationController
-  #before_action :authenticate_account!
+  before_action :authenticate_account!
 
   def index
     @reservations = Reservation.all
   end
 
   def new
-    @property = Property.all
+    @account = current_account.id
     @reservation = Reservation.new
+    @property = Property.all
   end
 
   def create
-    @property = Property.find(params[:id])
-    @reservation = @property.reservations.new(reservation_params)
-    @reservation.account = current_account
+    @reservation = Reservation.new(reservation_params)
+    @property = @reservation.property_id
+    @reservation.account_id = current_account.id
 
-    if @reservation.save
-      format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
-      format.json { render :show, status: :created, location: @reservation }
-    else
-      format.html { render :new, status: :unprocessable_entity }
-      format.json { render json: @reservation.errors, status: :unprocessable_entity }
+    respond_to do |format|
+      if @reservation.save
+        format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
+        format.json { render :show, status: :created, location: @reservation }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  def destroy
+    @reservation.destroy
+
+    respond_to do |format|
+      format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   private
 
@@ -32,7 +43,11 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date)
+    params.require(:reservation).permit(
+    :property_id,
+      :start_date,
+      :end_date
+    )
   end
 
 end

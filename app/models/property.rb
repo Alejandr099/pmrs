@@ -1,6 +1,7 @@
 #class Property < ApplicationRecord
 class Property < ActiveRecord::Base #< ApplicationRecord
   has_many :reservations
+  has_many :accounts, through: :reservations
   has_one_attached :photo
   belongs_to :account
 

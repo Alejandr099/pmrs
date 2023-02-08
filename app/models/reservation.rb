@@ -2,21 +2,18 @@ class Reservation < ApplicationRecord
   belongs_to :property
   belongs_to :account
 
-  validate :validates_dates
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validate :end_date_after_start_date
+
 
   private
 
-  def validates_dates
-    if (start_date && end_date) && (start_date > end_date)
-      errors.add(:start_date, "must be before end date")
-    end
+  def end_date_after_start_date
+    return if end_date.blank? || start_date.blank?
 
-    if (start_date && end_date) &&
-        (property.reservations.where(start_date: start_date..end_date).on
-        (property.reservations.where(end_date: start_date..end_date)).exists?)
-
-      errors.add(:start_date, "This property is not available for the selected dates")
+    if end_date < start_date
+      errors.add(:end_date, "must be after start date")
     end
   end
-
 end

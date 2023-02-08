@@ -1,7 +1,7 @@
 <% Property.all.each do |property| %>
 
   <div class="col-md-4" style="min-width: 400px;">
-    <div class="property border m-4" style="min-width: 380px; height:420px;">
+    <div class="property border m-4 rounded" style="min-width: 380px; height:420px;">
 
       <% if property.public_page.present? %>
         <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>

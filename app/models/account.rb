@@ -9,8 +9,8 @@ class Account < ApplicationRecord
          :trackable,
          :confirmable
 
-  has_many :properties
   has_many :reservations
+  has_many :properties, through: :reservations
   has_one_attached :avatar
   has_one_attached :cover_image
 
