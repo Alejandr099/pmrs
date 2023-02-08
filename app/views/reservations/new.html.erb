@@ -37,8 +37,9 @@
         </div>
       </div>
 
-    <div class="form-group pt-1">
-      <%= form.submit "Save Reservation", class: "btn btn-success mt-3" %>
+    <div class="form-group pt-1 row">
+      <%= form.submit "Save Reservation", class: "btn btn-success mt-4 w-75 justify-content-center" %>
+      <%= link_to "Back", reservations_path, class: "btn btn-primary mt-2 w-75 justify-content-center" %>
     </div>
 
   <% end %>
@@ -52,4 +53,3 @@
   </section>
 <% end %>
 
-<%= link_to "Reservation list", reservations_path, class: "btn btn-primary" %>
