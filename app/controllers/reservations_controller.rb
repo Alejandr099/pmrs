@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
+        format.html { redirect_to reservations_url, notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,6 +34,10 @@ class ReservationsController < ApplicationController
       format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def total_price
+    (end_date - start_date).to_i * property.price
   end
 
   private

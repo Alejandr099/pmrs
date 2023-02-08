@@ -5,6 +5,7 @@ class Reservation < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :end_date_after_start_date
+  validate :no_collision
 
 
   private
@@ -14,6 +15,14 @@ class Reservation < ApplicationRecord
 
     if end_date < start_date
       errors.add(:end_date, "must be after start date")
+    end
+  end
+
+  def no_collision
+    property.reservations.each do |existing_reservation|
+      if (start_date - existing_reservation.end_date) * (existing_reservation.start_date - end_date) > 0
+        errors.add(:base, "Collision with existing reservation. You should choose another days.")
+      end
     end
   end
 end
