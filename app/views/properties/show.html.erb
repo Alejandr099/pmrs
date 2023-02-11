@@ -45,7 +45,7 @@
       <div class="row border-top border-bottom mt-5 mb-5 pt-4 pb-4">
         <div class="col-6">
           <% if @property.for_sale? %>
-          <strong><%= link_to "Estimated payment per Week:
+          <strong><%= link_to "Estimated payment per Day for rent:
 #{number_to_currency((@property.price - (@property.price * 0.1)) / 360, precision: 0) }", "#", class: "text-success", style: "text-decoration: none;" %></strong>
             <% else %>
           <strong>

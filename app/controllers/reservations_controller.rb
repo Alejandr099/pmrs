@@ -47,8 +47,7 @@ class ReservationsController < ApplicationController
   def check_account_owns_property
     property = Property.find(params[:id])
     if current_account == property.account_id
-      flash[:alert] = "You cannot make reservation for a property that you own."
-      redirect_to reservations_url
+      format.html { redirect_to reservations_url, notice: "You cannot make reservation for a property that you own."}
     end
   end
 
