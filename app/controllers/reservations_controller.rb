@@ -10,6 +10,7 @@ class ReservationsController < ApplicationController
     @account = current_account.id
     @reservation = Reservation.new
     @property = Property.all
+    @properties = Property.where.not(account_id: current_account.id)
   end
 
   def create

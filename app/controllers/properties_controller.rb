@@ -61,9 +61,7 @@ class PropertiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
-
+  
   def email_agent
     # trigger email send
     agent_id = params[:agent_id]
@@ -71,12 +69,6 @@ class PropertiesController < ApplicationController
     last_name = params[:last_name]
     email = params[:email]
     message = params[:message]
-
-    # Debug message in rails
-    #logger.debug "First name: #{first_name}"
-    #logger.debug "Last name: #{last_name}"
-    #logger.debug "Email: #{email}"
-    #logger.debug "Message: #{message}"
 
     ContactMailer.email_agent( agent_id, first_name, last_name, email, message ).deliver_now
 
@@ -88,7 +80,7 @@ class PropertiesController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_property
       @property = Property.find(params[:id])
     end

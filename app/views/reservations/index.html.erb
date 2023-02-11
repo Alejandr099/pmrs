@@ -26,7 +26,8 @@
           <td><%= reservation.end_date %></td>
           <td><%= reservation.created_at %></td>
           <td><%= link_to 'Edit', edit_reservation_url(reservation), class: "btn btn-success" %></td>
-          <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><%= link_to 'Destroy', reservation, method: :delete,
+                          data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     <% end %>

@@ -22,7 +22,7 @@
 
     <div class="form-group pt-1">
       <%= form.label :property_id, "Property" %>
-      <%= form.collection_select :property_id, Property.all, :id, :name, class: "form-control" %>
+      <%= form.collection_select :property_id, @properties, :id, :name, class: "form-control" %>
     </div>
 
       <div class="row">

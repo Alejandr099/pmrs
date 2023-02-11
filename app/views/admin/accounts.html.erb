@@ -1,6 +1,6 @@
 <h2>Accounts</h2>
 <% @accounts.each do |account| %>
-  <div class="row">
+  <div class="row p-1">
 
     <div class="col-sm-2">
       <%= account.full_name %>
@@ -15,11 +15,7 @@
     </div>
 
     <div class="col-sm-2">
-      <%= link_to "View Profile", profile_path(account.id) %>
-    </div>
-
-    <div class="col-sm-2">
-      <%= link_to "Delete", :method => :delete, :confirm => "Are you sure about deleting this account?" %>
+      <%= link_to "View Profile", profile_path(account.id), class: "btn btn-primary" %>
     </div>
 
   </div>

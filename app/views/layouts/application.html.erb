@@ -15,7 +15,6 @@
   </head>
 
   <body id="<%= controller.controller_name %>" class="<%= controller.action_name %> <%= "show-sidebar" if @show_sidebar.present? %>">
-    <%# if ["public", "devise", "sessions"].include?(controller.controller_name) %>
     <% if @show_sidebar.nil? %>
       <header>
         <%= render "layouts/nav/public" %>
@@ -35,7 +34,7 @@
         </div>
   <% end %>
 
-    <%#= render "layouts/footer"%>
+
 
     <div id="notiifications" ><%= flash_notifications %></div>
 
