@@ -1,9 +1,11 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_account!
-  #before_action :check_account_owns_property, only: [:create]
 
   def index
     @reservations = Reservation.all
+  end
+
+  def show
   end
 
   def new
@@ -44,13 +46,6 @@ class ReservationsController < ApplicationController
   end
 
   private
-
-  def check_account_owns_property
-    property = Property.find(params[:id])
-    if current_account == property.account_id
-      format.html { redirect_to reservations_url, notice: "You cannot make reservation for a property that you own."}
-    end
-  end
 
   def set_property
     @property = Property.find(params[:id])

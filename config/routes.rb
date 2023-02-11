@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # admin routes
   get "/accounts" => 'admin#accounts', as: :accounts
 
+  #get "/reservations_list" => 'reservations#show', as: :reservations_list
+
   get "/dashboard" => 'dashboard#index', as: :dashboard
   get "/profile/:id" => 'dashboard#profile', as: :profile
   post "/agent/message" => "properties#email_agent", as: :email_agent
