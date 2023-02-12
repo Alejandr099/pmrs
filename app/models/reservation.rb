@@ -9,6 +9,10 @@ class Reservation < ApplicationRecord
   validate :no_overlap_reservations
   validate :end_date_after_start_date
 
+  def property_name
+    property.try(:name)
+  end
+
   def total_price
     "#{property.price * number_of_days} $"
   end

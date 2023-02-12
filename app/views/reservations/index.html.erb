@@ -1,16 +1,25 @@
 
-<h1 class="mt-2 pb-4">Your Reservations</h1>
+<% if current_account.admin? %>
+  <h3 class="mt-2 pb-4">All Reservations</h3>
+<% else %>
+  <h3 class="mt-2 pb-4">Your Reservations</h3>
+<% end %>
 
 <table class="table table-responsive w-100 p-lg-3">
   <thead>
   <tr>
-    <th>Reservation ID</th>
-    <th>Account ID</th>
-    <th>Property ID</th>
+    <th>ID</th>
+    <% if current_account.admin? %>
+      <th>Account ID</th>
+      <th>Property ID</th>
+    <% end %>
+    <th>Property name</th>
     <th>Total price</th>
     <th>Res Start</th>
     <th>Res End</th>
-    <th>Res Created at</th>
+    <% if current_account.admin? %>
+      <th>Res Created at</th>
+    <% end %>
     <th>Options</th>
   </tr>
   </thead>
@@ -23,11 +32,12 @@
               <td><%= reservation.id %></td>
               <td><%= reservation.account_id %></td>
               <td><%= reservation.property_id %></td>
+              <td><%= reservation.property_name %></td>
               <td><%= reservation.total_price %></td>
               <td><%= reservation.start_date %></td>
               <td><%= reservation.end_date %></td>
               <td><%= reservation.created_at %></td>
-              <td><%= link_to 'Destroy', reservation, method: :delete,
+              <td><%= link_to 'Delete', reservation, method: :delete,
                               data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
             </tr>
         <% end %>
@@ -36,13 +46,11 @@
         <% if current_account.id == reservation.account_id  %>
           <tr class="align-middle border-primary">
             <td><%= reservation.id %></td>
-            <td><%= reservation.account_id %></td>
-            <td><%= reservation.property_id %></td>
+            <td><%= reservation.property_name %></td>
+            <td><%= reservation.total_price %></td>
             <td><%= reservation.start_date %></td>
             <td><%= reservation.end_date %></td>
-            <td><%= reservation.created_at %></td>
-            <td><%#= link_to 'show', edit_reservation_url(reservation), class: "btn btn-success" %></td>
-            <td><%= link_to 'Destroy', reservation, method: :delete,
+            <td><%= link_to 'Cancel', reservation, method: :delete,
                             data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
           </tr>
         <% end %>
