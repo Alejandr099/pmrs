@@ -45,8 +45,8 @@
       <div class="row border-top border-bottom mt-5 mb-5 pt-4 pb-4">
         <div class="col-6">
           <% if @property.for_sale? %>
-          <strong><%= link_to "Estimated payment per Day for rent:
-#{number_to_currency((@property.price - (@property.price * 0.1)) / 360, precision: 0) }", "#", class: "text-success", style: "text-decoration: none;" %></strong>
+          <strong><%= link_to "Estimated payment per Week for rent:
+#{number_to_currency(@property.price * 7, precision: 0) }", "#", class: "text-success", style: "text-decoration: none;" %></strong>
             <% else %>
           <strong>
             Available from <%= @property.available_date.strftime("%a") %>,
@@ -57,7 +57,10 @@
             <% end %>
         </div>
         <div class="col-6 text-right m-lg-0">
-          <strong><%= link_to "Can I reservate this property?", new_reservation_path, class: "text-success", style: "text-decoration: none; text-aligh:right;"  %></strong>
+          <strong>
+              <%= link_to "Can I reservate this property?", new_reservation_path,
+                        class: "text-success", style: "text-decoration: none; text-aligh:right;"  %>
+          </strong>
         </div>
       </div>
 

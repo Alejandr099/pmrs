@@ -9,6 +9,10 @@ class Reservation < ApplicationRecord
   validate :no_overlap_reservations
   validate :end_date_after_start_date
 
+  def total_price
+    "#{property.price * number_of_days} $"
+  end
+
   private
 
   def start_date_before_end_date
@@ -23,6 +27,10 @@ class Reservation < ApplicationRecord
       errors.add(:base, "This property is already reserved of selected dates")
       redirect_to new_reservation_url
     end
+  end
+
+  def number_of_days
+    (end_date-start_date).to_i
   end
 
   def not_own_property

@@ -42,10 +42,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def total_price
-    (end_date - start_date).to_i * property.price
-  end
-
   private
 
   def set_property

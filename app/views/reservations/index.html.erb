@@ -7,28 +7,45 @@
     <th>Reservation ID</th>
     <th>Account ID</th>
     <th>Property ID</th>
+    <th>Total price</th>
     <th>Res Start</th>
     <th>Res End</th>
     <th>Res Created at</th>
-    <th colspan="2">Options</th>
+    <th>Options</th>
   </tr>
   </thead>
 
   <tbody>
   <% if Reservation.all.exists? %>
-    <% Reservation.all.each do |reservation| %>
-      <% if current_account.id == reservation.account_id  %>
-        <tr class="align-middle border-primary">
-          <td><%= reservation.id %></td>
-          <td><%= reservation.account_id %></td>
-          <td><%= reservation.property_id %></td>
-          <td><%= reservation.start_date %></td>
-          <td><%= reservation.end_date %></td>
-          <td><%= reservation.created_at %></td>
-          <td><%#= link_to 'show', edit_reservation_url(reservation), class: "btn btn-success" %></td>
-          <td><%= link_to 'Destroy', reservation, method: :delete,
-                          data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-        </tr>
+    <% if current_account.admin? %>
+        <% Reservation.all.each do |reservation| %>
+            <tr class="align-middle border-primary">
+              <td><%= reservation.id %></td>
+              <td><%= reservation.account_id %></td>
+              <td><%= reservation.property_id %></td>
+              <td><%= reservation.total_price %></td>
+              <td><%= reservation.start_date %></td>
+              <td><%= reservation.end_date %></td>
+              <td><%= reservation.created_at %></td>
+              <td><%= link_to 'Destroy', reservation, method: :delete,
+                              data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            </tr>
+        <% end %>
+    <% else %>
+      <% Reservation.all.each do |reservation| %>
+        <% if current_account.id == reservation.account_id  %>
+          <tr class="align-middle border-primary">
+            <td><%= reservation.id %></td>
+            <td><%= reservation.account_id %></td>
+            <td><%= reservation.property_id %></td>
+            <td><%= reservation.start_date %></td>
+            <td><%= reservation.end_date %></td>
+            <td><%= reservation.created_at %></td>
+            <td><%#= link_to 'show', edit_reservation_url(reservation), class: "btn btn-success" %></td>
+            <td><%= link_to 'Destroy', reservation, method: :delete,
+                            data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
       <% end %>
     <% end %>
   <% else %>
