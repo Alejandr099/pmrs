@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get "/dashboard" => 'dashboard#index', as: :dashboard
   get "/profile/:id" => 'dashboard#profile', as: :profile
-  post "/agent/message" => "properties#email_agent", as: :email_agent
+  post "/user/message" => "properties#email_user", as: :email_user
 
   #root to: 'public#main'
   root to: "public#main"

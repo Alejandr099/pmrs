@@ -10,8 +10,8 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1 or /properties/1.json
   def show
-    @agent = @property.account
-    @agent_properties = Property.where(account_id: @agent.id).where.not(id: @property.id)
+    @user = @property.account
+    @user_properties = Property.where(account_id: @user.id).where.not(id: @property.id)
   end
 
   # GET /properties/new
@@ -62,15 +62,15 @@ class PropertiesController < ApplicationController
     end
   end
   
-  def email_agent
+  def email_user
     # trigger email send
-    agent_id = params[:agent_id]
+    user_id = params[:user_id]
     first_name = params[:first_name]
     last_name = params[:last_name]
     email = params[:email]
     message = params[:message]
 
-    ContactMailer.email_agent( agent_id, first_name, last_name, email, message ).deliver_now
+    ContactMailer.email_user( user_id, first_name, last_name, email, message ).deliver_now
 
     # response to script
     respond_to do |format|

@@ -12,19 +12,19 @@ $(function() {
     });
 
     // send message script as json
-    $('#send-message-to-agent').on("click", function () {
-        var agent_id = $("#agent_id").val(),
+    $('#send-message-to-user').on("click", function () {
+        var user_id = $("#user_id").val(),
             first_name = $("#message-first-name").val(),
             last_name = $("#message-last-name").val(),
             email = $("#message-email").val();
             message = $("#message-text").val();
 
         $.ajax({
-            url: "/agent/message",
+            url: "/user/message",
             method: "POST",
             dataType: "json",
             data: {
-                agent_id: agent_id,
+                user_id: user_id,
                 first_name: first_name,
                 last_name: last_name,
                 email: email,
@@ -32,7 +32,7 @@ $(function() {
             },
             success: function(data) {
                 $('#contact-modal form').remove();
-                $('#send-message-to-agent').remove();
+                $('#send-message-to-user').remove();
                 $('#contact-modal .modal-body').html("<p>Your message has been sent successfully!</p>");
             }
         });

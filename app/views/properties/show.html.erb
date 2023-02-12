@@ -96,11 +96,11 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <p class="h3 mb-3">Other properties by this agent</p>
+        <p class="h3 mb-3">Other properties by this user</p>
       </div>
-      <%= render "properties/list", properties: @agent_properties %>
+      <%= render "properties/list", properties: @user_properties %>
     </div>
   </div>
 </section>
 
-<%= render "properties/send_email_modal", agent: @agent %>
+<%= render "properties/send_email_modal", user: @user %>
