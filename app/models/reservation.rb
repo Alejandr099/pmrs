@@ -4,32 +4,39 @@ class Reservation < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validate :start_date_before_end_date
+  validate :not_own_property, on: :create
+  validate :no_overlap_reservations
   validate :end_date_after_start_date
-  #validate :cannot_reserve_own_property
-  validate :no_collision
-
 
   private
 
+  def start_date_before_end_date
+    errors.add(:start_date, "must be before end date") if start_date >= end_date
+  end
+
+  def no_overlap_reservations
+    overlap_reservations = Reservation.where(property_id: property_id)
+                                      .where.not(id: id)
+                                      .where("start_date <= ? AND end_date >= ?", end_date, start_date)
+    if overlap_reservations.present?
+      errors.add(:base, "This property is already reserved of selected dates")
+      redirect_to new_reservation_url
+    end
+  end
+
+  def not_own_property
+    if account.present? && property.account_id == account.id
+      errors.add(:base, "Can't be reserved by owner")
+    end
+  end
+
   def end_date_after_start_date
-    return if end_date.blank? || start_date.blank?
+    return if end_date.blank? && start_date.blank?
 
     if end_date < start_date
       errors.add(:end_date, "must be after start date")
     end
   end
 
-  #def cannot_reserve_own_property
-  #  if property.account_ids == current_account.id
-  #    errors.add(:base, "Cannot reserve own property!")
-  #  end
-  #end
-
-  def no_collision
-    property.reservations.each do |existing_reservation|
-      if (start_date - existing_reservation.end_date) * (existing_reservation.start_date - end_date) > 0
-        errors.add(:base, "Collision with existing reservation. You should choose another days.")
-      end
-    end
-  end
 end

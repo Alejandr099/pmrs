@@ -2,35 +2,30 @@
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Property Mgmt & Res System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav me-auto">
-      <li class="nav-item">
-        <% if account_signed_in? %>
-          <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
-        <% else %>
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Reservations", reservations_path, class: "nav-link" %>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <% if account_signed_in? %>
+            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+          <% else %>
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Reservations", reservations_path, class: "nav-link" %>
+        </li>
+      </ul>
 
-    <% if account_signed_in? %>
-        <%= link_to "Log out", destroy_account_session_path, method: :delete, class: "btn btn-success float-sm-right" %>
-    <% else %>
-        <%= link_to "Log In", new_account_session_path, class: "btn btn-secondary mr-2 float-sm-right" %>
-        <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-success ms-2 float-sm-right" %>
-    <% end %>
-<!--
-    <form class="form-inline my-2 my-lg-0 d-flex align-items-center flex-nowrap">
-      <input class="form-control me-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    -->
-  </div>
+      <% if account_signed_in? %>
+          <%= link_to "Log out", destroy_account_session_path, method: :delete, class: "btn btn-success float-sm-right" %>
+      <% else %>
+          <%= link_to "Log In", new_account_session_path, class: "btn btn-secondary mr-2 float-sm-right" %>
+          <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-success ms-2 float-sm-right" %>
+      <% end %>
+
+    </div>
   </div>
 </nav>

@@ -1,8 +1,6 @@
-<%= render "layouts/nav/user" %>
-
 
 <% if account_signed_in? %>
-  <section class="form-auth mx-auto">
+  <section class="form-auth mx-auto text-center">
   <h1 class="h3">New Reservation</h1>
 
   <%= form_with(model: @reservation) do |form| %>
@@ -20,10 +18,13 @@
         </div>
       <% end %>
 
-    <div class="form-group pt-1">
-      <%= form.label :property_id, "Property" %>
-      <%= form.collection_select :property_id, @properties, :id, :name, class: "form-control" %>
-    </div>
+      <div class="form-group pt-1">
+        <%= form.label :property_id, "Property" %>
+        <% if @properties.present? %>
+          <%#= form.collection_select :property_id, @properties, :id, :name, class: "form-control" %>
+          <%= form.collection_select :property_id, @properties.map, :id, :name, class: "form-control" %>
+        <% end %>
+      </div>
 
       <div class="row">
         <div class="form-group col pt-1">
@@ -37,11 +38,13 @@
         </div>
       </div>
 
-    <div class="form-group pt-1 row">
-      <%= form.submit "Save Reservation", class: "btn btn-success mt-4 w-75 justify-content-center" %>
-      <%= link_to "Back", reservations_path, class: "btn btn-primary mt-2 w-75 justify-content-center" %>
-    </div>
+      <div class="form-group pt-1 row">
+        <%= form.submit "Save Reservation", class: "btn btn-success mt-4" %>
+      </div>
 
+      <div class="form-group pt-1 row text-center">
+        <%= link_to "Back", reservations_path, class: "btn btn-primary mt-2" %>
+      </div>
   <% end %>
   </section>
 <% else %>

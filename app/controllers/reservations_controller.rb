@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_account!
+  before_action :set_sidebar
 
   def index
     @reservations = Reservation.all
@@ -22,7 +23,7 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to reservations_url, notice: "Reservation was successfully created." }
+        format.html { redirect_to new_reservation_url, notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -49,6 +50,14 @@ class ReservationsController < ApplicationController
 
   def set_property
     @property = Property.find(params[:id])
+  end
+
+  def set_sidebar
+    @show_sidebar = true
+  end
+
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
   end
 
   def reservation_params
