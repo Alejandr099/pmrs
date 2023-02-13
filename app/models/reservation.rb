@@ -9,7 +9,6 @@ class Reservation < ApplicationRecord
   validate :start_date_before_end_date
   validate :end_date_after_start_date
 
-
   def property_name
     property.try(:name)
   end
@@ -24,7 +23,7 @@ class Reservation < ApplicationRecord
     return if end_date.blank? || start_date.blank?
 
     if start_date >= end_date
-      errors.add(:start_date, "must be before end date") #if start_date >= end_date
+      errors.add(:start_date, "must be before end date")
     end
   end
 
