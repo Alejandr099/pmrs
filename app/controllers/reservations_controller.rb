@@ -22,8 +22,9 @@ class ReservationsController < ApplicationController
     @reservation.account_id = current_account.id
 
     respond_to do |format|
+      @reservation.valid?
       if @reservation.save
-        format.html { redirect_to new_reservation_url, notice: "Reservation was successfully created." }
+        format.html { redirect_to reservations_url, notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new, status: :unprocessable_entity }

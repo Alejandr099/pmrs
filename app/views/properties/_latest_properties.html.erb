@@ -4,9 +4,11 @@
     <div class="property border m-4 rounded" style="min-width: 380px; height:420px;">
 
       <% if property.public_page.present? %>
-        <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
+        <%= link_to( (image_tag property.public_page, class: "d-block mx-auto mt-3", style: "object-fit:cover;" ),
+                     property_path(property) ) %>
       <% else %>
-        <%= link_to( (image_tag "/assets/placeholder_villa.png", class: "d-block mx-auto mt-3", style: "object-fit:cover;" ), property_path(property) ) %>
+        <%= link_to( (image_tag "/assets/placeholder_villa.png", class: "d-block mx-auto mt-3", style: "object-fit:cover;" ),
+                     property_path(property) ) %>
       <% end %>
 
       <div class="property-summary m-4">

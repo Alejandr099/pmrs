@@ -29,6 +29,7 @@ class PropertiesController < ApplicationController
     @property.account_id = current_account.id
 
     respond_to do |format|
+      @property.valid?
       if @property.save
         format.html { redirect_to property_url(@property), notice: "Property was successfully created." }
         format.json { render :show, status: :created, location: @property }
@@ -77,7 +78,6 @@ class PropertiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
   private
 

@@ -1,10 +1,17 @@
-#class Property < ApplicationRecord
-class Property < ActiveRecord::Base #< ApplicationRecord
+
+class Property < ActiveRecord::Base
   has_many :reservations
   has_many :accounts, through: :reservations
   has_one_attached :photo
   belongs_to :account
 
+  validates :name, length: {minimum: 4, max: 30}
+  validates :address, length: {minimum: 4, max: 30}
+  validates :price, length: {minimum: 1, max: 5}, :numericality => {:greater_than => 0}
+  validates :rooms, length: {minimum: 1, max: 2}, :numericality => {:greater_than => 0}
+  validates :bathrooms, length: {minimum: 1, max: 2}, :numericality => {:greater_than => 0}
+  validates :parking_spaces, length: {minimum: 1, max: 2}, :numericality => {:greater_than => -1}
+  validates :available_date, inclusion: { in: (Date.today..Date.today+2.years) }
 
   scope :latest, -> { order created_at:  :desc}
   scope :sold, -> { where status: "sold" }

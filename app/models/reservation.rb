@@ -2,12 +2,13 @@ class Reservation < ApplicationRecord
   belongs_to :property
   belongs_to :account
 
-  validates :start_date, presence: true
+  validates :start_date, presence: true, inclusion: { in: (Date.today+1..Date.today+1.years) }
   validates :end_date, presence: true
-  validate :start_date_before_end_date
   validate :not_own_property, on: :create
   validate :no_overlap_reservations
+  validate :start_date_before_end_date
   validate :end_date_after_start_date
+
 
   def property_name
     property.try(:name)
@@ -20,7 +21,11 @@ class Reservation < ApplicationRecord
   private
 
   def start_date_before_end_date
-    errors.add(:start_date, "must be before end date") if start_date >= end_date
+    return if end_date.blank? || start_date.blank?
+
+    if start_date >= end_date
+      errors.add(:start_date, "must be before end date") #if start_date >= end_date
+    end
   end
 
   def no_overlap_reservations
@@ -29,7 +34,6 @@ class Reservation < ApplicationRecord
                                       .where("start_date <= ? AND end_date >= ?", end_date, start_date)
     if overlap_reservations.present?
       errors.add(:base, "This property is already reserved of selected dates")
-      redirect_to new_reservation_url
     end
   end
 
@@ -46,7 +50,7 @@ class Reservation < ApplicationRecord
   def end_date_after_start_date
     return if end_date.blank? && start_date.blank?
 
-    if end_date < start_date
+    if :start_date < :end_date
       errors.add(:end_date, "must be after start date")
     end
   end
