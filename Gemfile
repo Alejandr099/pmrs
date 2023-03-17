@@ -29,6 +29,9 @@ gem "font-awesome-sass", "~> 6.2.1"
 # Manage users
 gem "devise"
 
+# Automate and self execute tasks
+gem 'sidekiq'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
