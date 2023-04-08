@@ -22,7 +22,9 @@
         <%= form.label :property_id, "Property" %>
         <% if @properties.present? %>
           <%#= form.collection_select :property_id, @properties, :id, :name, class: "form-control" %>
-          <%= form.collection_select :property_id, @properties.map, :id, :name, class: "form-control" %>
+          <%#= form.collection_select :property_id, @properties.map, :id, :name, class: "form-control" %>
+          <%= form.select :property_id, options_from_collection_for_select(@properties, "id", "name", form.object.property_id), class: "form-control" %>
+
         <% end %>
       </div>
 
