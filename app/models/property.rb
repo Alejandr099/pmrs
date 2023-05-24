@@ -1,4 +1,3 @@
-
 class Property < ActiveRecord::Base
   has_many :reservations
   has_many :accounts, through: :reservations
