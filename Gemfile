@@ -32,6 +32,9 @@ gem "devise"
 # Automate and self execute tasks
 gem 'sidekiq'
 
+# Mailer confirmation in HTML, not in terminal
+gem 'mailcatcher'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
