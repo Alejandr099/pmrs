@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "net-http"
+gem "net-smtp"
+gem "net-imap"
+
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
@@ -33,7 +37,8 @@ gem "devise"
 gem 'sidekiq'
 
 # Mailer confirmation in HTML, not in terminal
-gem 'mailcatcher'
+# NEVER PUT IT INTO GEMFILE IT WILL CONFILT WITH SoME GEMS. INSTALL IT THROUGH TERMINAL
+# gem 'mailcatcher'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
