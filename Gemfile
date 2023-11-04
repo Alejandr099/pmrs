@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "net-http"
 gem "net-smtp"
 gem "net-imap"
+gem "uri"
 
 ruby '2.6.3'
 

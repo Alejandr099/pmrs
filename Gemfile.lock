@@ -70,7 +70,6 @@ GEM
     concurrent-ruby (1.1.10)
     connection_pool (2.3.0)
     crass (1.0.6)
-    daemons (1.4.1)
     date (3.3.3)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -79,16 +78,11 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.12.0)
-    eventmachine (1.2.7)
     ffi (1.15.5)
     font-awesome-sass (6.2.1)
       sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    haml (6.1.1)
-      temple (>= 0.8.2)
-      thor
-      tilt
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -97,7 +91,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.6.3)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -109,16 +102,6 @@ GEM
       net-imap
       net-pop
       net-smtp
-    mailcatcher (0.2.4)
-      eventmachine
-      haml
-      i18n
-      json
-      mail
-      sinatra
-      skinny (>= 0.1.2)
-      sqlite3-ruby
-      thin
     marcel (1.0.2)
     method_source (1.0.0)
     mini_magick (4.12.0)
@@ -126,8 +109,8 @@ GEM
     mini_portile2 (2.8.1)
     minitest (5.16.3)
     msgpack (1.6.0)
-    mustermann (3.0.0)
-      ruby2_keywords (~> 0.0.1)
+    net-http (0.3.2)
+      uri
     net-imap (0.3.4)
       date
       net-protocol
@@ -150,8 +133,6 @@ GEM
     rack (2.2.4)
     rack-mini-profiler (2.3.4)
       rack (>= 1.2.0)
-    rack-protection (3.0.6)
-      rack
     rack-proxy (0.7.4)
       rack
     rack-test (2.0.2)
@@ -200,7 +181,6 @@ GEM
       rexml
     ruby-vips (2.1.4)
       ffi (~> 1.12)
-    ruby2_keywords (0.0.5)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -216,14 +196,6 @@ GEM
       connection_pool (>= 2.2.5, < 3)
       rack (~> 2.0)
       redis (>= 4.5.0, < 5)
-    sinatra (3.0.6)
-      mustermann (~> 3.0)
-      rack (~> 2.2, >= 2.2.4)
-      rack-protection (= 3.0.6)
-      tilt (~> 2.0)
-    skinny (0.2.2)
-      eventmachine (~> 1.0)
-      thin
     spring (3.1.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
@@ -235,18 +207,12 @@ GEM
     sqlite3 (1.5.4)
       mini_portile2 (~> 2.8.0)
     sqlite3 (1.5.4-x86_64-darwin)
-    sqlite3-ruby (1.3.3)
-      sqlite3 (>= 1.3.3)
-    temple (0.10.2)
-    thin (1.8.2)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.1)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    uri (0.12.2)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.2.0)
@@ -277,8 +243,10 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
-  mailcatcher
   mini_magick
+  net-http
+  net-imap
+  net-smtp
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6, >= 6.1.6.1)
@@ -288,6 +256,7 @@ DEPENDENCIES
   spring
   sqlite3 (~> 1.4)
   tzinfo-data
+  uri
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 
